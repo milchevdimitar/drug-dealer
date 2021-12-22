@@ -1,0 +1,2 @@
+#run
+./main >> data.txt
