@@ -36,7 +36,6 @@ struct person {
 
 };
 
-int check_money(int money);
 int strequ(char a[], char b[]);
 void dealer_buy(struct dealer* dealer, struct person* person, char product[], float amount);
 void dealer_is_now_poor(struct dealer* dealer);

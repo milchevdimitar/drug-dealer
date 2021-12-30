@@ -65,6 +65,13 @@ struct person person = {
 
 int main(){
 
+    printf("Available drugs:\n");
+    printf("Weed\n");
+    printf("Drug\n");
+    printf("Heroin\n");
+
+    printf("-------------------------------\n");
+
     char type_drug[MAX_SIZE];
     printf("Drugs type:");
     fgets(type_drug, 49, stdin);
@@ -73,6 +80,8 @@ int main(){
     float amount;
     printf("Amount: ");
     scanf("%f", &amount);
+    
+    printf("-------------------------------\n");
 
     dealer_buy(&dealer, &person, type_drug , amount);
     dealer_is_now_poor(&dealer);

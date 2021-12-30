@@ -1,11 +1,5 @@
 #include "lib.h"
 
-int check_money(int money) {
-
-    return money;
-
-}
-
 int strequ(char a[], char b[]) {
 
     while (*a == *b) {
