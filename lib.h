@@ -8,7 +8,7 @@
 #include <math.h>
 #include <time.h>
 
-#define MAX_SIZE 50
+#define MAX_SIZE (20)
 
 struct item {
 
@@ -23,19 +23,14 @@ struct item {
 
 struct dealer {
 
+    char name[MAX_SIZE];
     float money;
     char best_clients[MAX_SIZE][MAX_SIZE];
     struct item items[MAX_SIZE];
 
 };
 
-struct person {
-
-    float money;
-    char name [MAX_SIZE];
-
-};
-
 int strequ(char a[], char b[]);
-void dealer_buy(struct dealer* dealer, struct person* person, char product[], float amount);
+void dealer_buy(struct dealer* dealer, char name[], char product[], float amount);
 void dealer_is_now_poor(struct dealer* dealer);
+void dealer_restock(struct dealer* dealer);

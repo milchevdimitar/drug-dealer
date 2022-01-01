@@ -13,7 +13,7 @@ int strequ(char a[], char b[]) {
 return 0;
 }
 
-void dealer_buy(struct dealer* dealer, struct person* person, char product[], float amount){
+void dealer_buy(struct dealer* dealer, char name[], char product[], float amount){
 
     struct item *item = 0;
 
@@ -39,7 +39,7 @@ void dealer_buy(struct dealer* dealer, struct person* person, char product[], fl
 
     for (int i = 0; i < MAX_SIZE; i++) {
         
-        if (strequ(person->name, dealer->best_clients[i])){
+        if (strequ(name, dealer->best_clients[i])){
 
             price = item->f_price;
             break;
@@ -50,13 +50,6 @@ void dealer_buy(struct dealer* dealer, struct person* person, char product[], fl
 
     price *= amount;
 
-    if (person->money < price) {
-
-        printf("U r poor silly XDXDXD\n");
-        return;
-
-    }
-
     if (item->amount < amount) {
 
         printf("I don't have so much drugs 4 u buddy\n");
@@ -64,31 +57,57 @@ void dealer_buy(struct dealer* dealer, struct person* person, char product[], fl
 
     }
 
-    person->money -= price;
     item->amount -= amount;
+    dealer->money += price;
 
     printf("Succesful purchase ;)\n");
     printf("-------------------------------\n");
-    printf("Remaining amount for sale:%.f\n", item->amount);
-    printf("Remaining money:%.f\n", person->money);   
+    printf("Remaining amount for sale: %.2f\n", item->amount);
+    printf("New balance: %.2f\n", dealer->money);
 
 }
 
 void dealer_is_now_poor(struct dealer* dealer) {
 
-    if (!(rand()%10)) {
-        
-        for (int i = 0; i < MAX_SIZE; i++) {
+    for (int i = 0; i < MAX_SIZE; i++) {
 
-            dealer->items[i].amount = 0;
-        
-        }
-
-        printf("U were robbed, so go f*ck urself\n");
+        dealer->items[i].amount = 0;
 
     }
 
+    dealer->money = 0;
+
 }
 
+void dealer_restock(struct dealer* dealer) {
 
+    int selected;
+    float amount;
 
+    printf("Select item to restock\n");
+
+    for (int i = 0 ; i < MAX_SIZE; i++) {
+
+        if (dealer->items[i].name[0] == 0) break;
+
+        printf("%d - %s\n", i + 1, dealer->items[i].name, dealer->items[i].amount);
+
+    }
+
+    do {
+
+        printf("$ ");
+        scanf("%d", &selected);
+        getchar();
+
+    } while (selected < 1 || selected > MAX_SIZE);
+
+    printf("How much to restock\n$ ");
+    scanf("%f", &amount);
+    getchar();
+
+    dealer->items[--selected].amount += amount;
+
+    printf("Restocked %s, now %f\n", dealer->items[selected].name, dealer->items[selected].amount);
+
+}
