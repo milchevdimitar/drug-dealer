@@ -1,6 +1,3 @@
-//Lib for my custom drug dealer
-//Copyright Dimitar Milchev
-
 #include "lib.h"
 
 int strequ(char a[], char b[]) {

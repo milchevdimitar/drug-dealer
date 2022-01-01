@@ -1,6 +1,3 @@
-//My custom drug dealer
-//Copyright Dimitar Milchev
-
 /*
 ДАДЕНО:
  ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––--
@@ -42,7 +39,7 @@ void input_dealer(struct dealer* dealer) {
 
     do {
 
-        printf("Clients count\n$ ");
+        printf("Trusted clients count\n$ ");
         scanf("%d", &maxClients);
 
     } while (maxClients < 1 || maxClients > MAX_SIZE);
