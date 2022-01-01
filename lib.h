@@ -1,4 +1,4 @@
-//Lib for my custom drug dealer
+//My drug dealer
 //Copyright Dimitar Milchev
 
 //include
