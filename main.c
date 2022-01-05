@@ -1,5 +1,6 @@
 //My drug dealer
 //Copyright Dimitar Milchev
+//Linus Torvalds code style
 
 /*
 ДАДЕНО:
