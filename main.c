@@ -142,7 +142,7 @@ void buy(struct dealer *dealer) {
 
 }
 
-int main(){
+int main() {
 
     struct dealer dealer;
     int looping = 1;
